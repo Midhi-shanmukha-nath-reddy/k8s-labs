@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - name: flask-app
+        image: sovereignoshan/hypha-demo:v1  #change the image name
+        ports:
+        - containerPort: 5000
+        env:
+        - name: CONFIG_MAP_VALUE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: CONFIG_MAP_VALUE
+        - name: SECRET_VALUE
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: SECRET_VALUE
+        - name: ENV_VALUE
+          value: "This is an environment variable"
+

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Persistent Flask App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .card {
+        margin-bottom: 20px;
+        border: 1px solid #007bff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .card-title {
+        color: #007bff;
+      }
+      .card-subtitle {
+        color: #6c757d;
+      }
+      .list-group-item {
+        border: 1px solid #007bff;
+        background-color: #e9f5ff;
+      }
+      textarea {
+        resize: none;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Data Persistence with EBS</h1>
+          <h2 class="card-subtitle mb-2 text-muted">Last 10 Entries</h2>
+          <ul class="list-group mb-3">
+            {% for entry in entries %}
+              <li class="list-group-item">{{ entry }}</li>
+            {% endfor %}
+          </ul>
+          <form action="/save" method="post">
+            <div class="form-group">
+              <label for="data">Enter Data:</label>
+              <textarea id="data" name="data" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+

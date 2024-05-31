@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-la-db-deploy-tolerated
+  namespace: la-db
+  labels:
+    app: nginx
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: public.ecr.aws/nginx/nginx:1.26  #change the image name
+        ports:
+        - containerPort: 80
+      tolerations:
+      - key: name
+        value: db
+        effect: NoSchedule
+      nodeSelector:
+        ns: la-db
