@@ -1,0 +1,112 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-1
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=5m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-2
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=5m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-3
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=10m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-4
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=10m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-5
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=5m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-6
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=5m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-7
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=10m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest-8
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: sovereignoshan/loadgenerate:latest
+        command: ["siege", "-v", "--concurrent=500000", "--benchmark", "--time=10m", "http://35.86.183.60:30080/", "-p"]
+      restartPolicy: Never
+  backoffLimit: 4
+---
