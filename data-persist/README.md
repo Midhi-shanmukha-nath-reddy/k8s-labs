@@ -78,3 +78,5 @@ k apply -f ../flask-app/secret.yaml -n data-apps
 k get po -n data-apps
 k get pvc -n data-apps
 k get svc -n data-apps
+
+###
